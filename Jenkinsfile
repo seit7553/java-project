@@ -12,11 +12,9 @@ node('linux'){
     }  
     
     stage('Deploy'){
-        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-jenkins', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-    sh 'aws s3 mb s3://seitz-assignment10' 
             sh 'aws s3 cp dist/rectangle-${BUILD_NUMBER}.jar s3://jenkins/$(JOB_NAME)/${BUILD_NUMBER}/'
     }
-    }
+    
     
     stage('Reports'){
 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-jenkins', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
