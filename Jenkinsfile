@@ -11,10 +11,7 @@ node('linux'){
     }  
     
     stage('Deploy'){
-        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '1a42ea39-cfe4-4c18-b01c-f049bb4dd21e', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-            
         sh 'aws s3 cp dist/rectangle-${BUILD_NUMBER}.jar s3://seit773-jenkins/'
-        }
     }
     
     
