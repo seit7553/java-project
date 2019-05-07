@@ -13,7 +13,7 @@ node('linux'){
     }  
     
     stage('Deploy'){
-             sh 'sudo aws s3 cp dist/rectangle-${BUILD_NUMBER}.jar s3://jenkins/${JOB_NAME}/${BUILD_NUMBER}/
+             sh 'sudo aws s3 cp dist/rectangle-${BUILD_NUMBER}.jar s3://jenkins/${JOB_NAME}/${BUILD_NUMBER}/'
     }
     
     
