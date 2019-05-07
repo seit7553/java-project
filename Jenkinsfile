@@ -1,5 +1,5 @@
 properties([pipelineTriggers([githubPush()])]) 
-
+//assignment10
 node('linux'){
     stage('Build'){
         git 'https://github.com/seit7553/java-project.git'
